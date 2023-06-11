@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+		{{ title }}
+	</title>
+	<meta http-equiv="refresh" content="30">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/dataTables.bootstrap5.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles_table.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/global_banner.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles_banner.css') }}">
+  </head>
+  <body>
+  
+    <div class="container-fluid pl-0 pr-0">
+      {% block content %}{% endblock %}
+    </div>
+	
+	<script  rel="text/javascript" charset="utf8" src="{{ url_for('static', filename='javascripts/jquery-3.6.0.min.js') }}"></script>
+	<script rel="text/javascript" charset="utf8" src="{{ url_for('static', filename='javascripts/jquery.dataTables.js') }}"></script>
+	<script rel="text/javascript" charset="utf8" src="{{ url_for('static', filename='javascripts/dataTables.bootstrap5.js') }}"></script>
+	
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
