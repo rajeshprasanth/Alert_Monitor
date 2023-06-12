@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css"> -->
+	
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/dataTables.bootstrap5.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+	
+  </head>
+  <body>
+    <div class="container-fluid pl-0 pr-0">
+      <h1>{{ title }}</h1>
+      <hr>
+	  			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="#">Dashboard</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href="#">Event Manager</a>
+					</li>
+				</ol>
+			</nav>
+
+      {% block content %}{% endblock %}
+    </div>
+	
+	<script  rel="text/javascript" charset="utf8" src="{{ url_for('static', filename='javascripts/jquery-3.6.0.min.js') }}"></script>
+	<script rel="text/javascript" charset="utf8" src="{{ url_for('static', filename='javascripts/jquery.dataTables.js') }}"></script>
+	<script rel="text/javascript" charset="utf8" src="{{ url_for('static', filename='javascripts/dataTables.bootstrap5.js') }}"></script>
+	
+<!--     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script> -->
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
