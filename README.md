@@ -1,8 +1,8 @@
 # Alert Monitor
-# T0D0
+# TODO
 ### 
 
-- [ ] Rewrite all sql parts to SQLAlchemy
+- [ ] Rewrite all sql parts to SQLAlchemy (wip)
 - [ ] Test performance in sqlite,mysql,postgresql,mssql
 - [ ] Implement login page and exit with user name and password
 - [ ] Implement secure api endpoints with password/token authentication
