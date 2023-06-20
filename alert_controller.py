@@ -37,8 +37,39 @@ def update_alert(ResponseMSG,ResponseTime, UpdatedBy, AlertStatus,AlertId):
         db.close()
         
     return updated_alert
+
+def delete_alert(AlertId):
+    next_alert = {}
+    try:
+        db = get_db()
+        cursor = db.cursor()
+        statement = "DELETE FROM ALERT_TABLE WHERE AlertId =?"
+        cursor.execute(statement, [AlertId])
+        db.commit()
+        next_alert = get_by_alertid(int(AlertId)+1)
+        
+    except:
+        db.rollback()
+        next_alert = {}
+    finally:
+        db.close()
+        
+    return next_alert
     
-    
+def delete_all():
+    try:
+        db = get_db()
+        cursor = db.cursor()
+        statement = "DELETE FROM ALERT_TABLE"
+        cursor.execute(statement)
+        db.commit()
+        
+    except:
+        db.rollback()
+    finally:
+        db.close()
+        
+    return
 #------------------------------
 # Method to get all the alerts.
 #------------------------------

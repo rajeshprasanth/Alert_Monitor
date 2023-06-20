@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route("/api/alerts/insert", methods=["POST"])
-def insert_game():
+def insert_alert():
     alert_details = request.get_json()
     AlertName = alert_details["AlertName"]
     AlertStatus = alert_details["AlertStatus"]
@@ -28,6 +28,20 @@ def update_alert():
     AlertStatus = alert_details["AlertStatus"]
     AlertId = alert_details["AlertId"]
     result = alert_controller.update_alert(ResponseMSG,ResponseTime, UpdatedBy, AlertStatus,AlertId)
+    return jsonify(result)
+    
+@app.route("/api/alerts/delete", methods=["DELETE"])
+def delete_alert():
+    alert_details = request.get_json()
+    AlertId = alert_details["AlertId"]
+    result = alert_controller.delete_alert(AlertId)
+    return jsonify(result)
+    
+    
+@app.route("/api/alerts/delete/all", methods=["DELETE"])
+def delete_all():
+    alert_details = request.get_json()
+    result = alert_controller.delete_all()
     return jsonify(result)
 
 @app.route('/api/alerts', methods=["GET"])
